@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   var config = {
     app: 'app',
     min: '.min',
-    vendor: 'bower_components',
+    vendor: 'vendor',
     dist: 'dist',
     distMac32: 'dist/MacOS32',
     distMac64: 'dist/MacOS64',
