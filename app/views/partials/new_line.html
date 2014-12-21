@@ -1,0 +1,41 @@
+<div class="page-header">
+  Nouveau mouvement sur le compte: {{ account }}
+</div>
+<form id="form_new_line" class="form-horizontal" role="form">
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtLabel">Nom:</label>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <input
+          id="txtLabel"
+          type="text"
+          class="form-control"
+          name="txtLabel">
+        </input>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtAmount">Montant:</label>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <input
+          id="txtAmount"
+          type="text"
+          class="form-control"
+          name="txtAmount">
+        </input>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-11">
+      <div class="form-group pull-right">
+        <button id="btnSaveLine" name="btnSaveLine">
+          <span class="glyphicon glyphicon-floppy-save"></span>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

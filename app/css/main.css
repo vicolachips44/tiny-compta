@@ -1,0 +1,13 @@
+body {
+  background: url(../assets/images/bg-9-full.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tiny-margin {
+  margin-left:5px;
+  margin-right:5px;
+}
+

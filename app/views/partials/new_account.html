@@ -1,0 +1,45 @@
+<form id="form_new_account" class="form-horizontal" role="form">
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtAccountName">Nom:</label>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <input
+          id="txtAccountName"
+          type="text"
+          class="form-control"
+          name="txtAccountName">
+        </input>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <label
+      class="control-label col-sm-3"
+      for="cmbAccountType">
+      Type de compte:
+    </label>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <select
+          id="cmbAccountType"
+          class="form-control"
+          name="cmbAccountType">
+          {{ #accountTypes }}
+          <option value="{{ id }}">{{ name }}</option>
+          {{ /accountTypes }}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-11">
+      <div class="form-group pull-right">
+        <button id="btnSaveAccount" name="btnSaveAccount">
+          <span class="glyphicon glyphicon-floppy-save"></span>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+

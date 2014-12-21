@@ -1,0 +1,23 @@
+{
+  "name": "tinycompta",
+  "main": "views/index.html",
+  "version": "0.0.1",
+  "single-instance": true,
+  "window": {
+    "title": "Tiny compta",
+    "width": 800,
+    "height": 600,
+    "min_width": 800,
+    "min_height": 600,
+    "icon": "tiny.png",
+    "position": "center",
+    "toolbar": false,
+    "frame": true
+  },
+  "chromium-args": "--child-clean-exit",
+  "dependencies": {
+    "locallydb": "0.0.4",
+    "mustache": "^0.8.2",
+    "underscore": "^1.7.0"
+  }
+}
