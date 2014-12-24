@@ -24,8 +24,12 @@
     var account = this.account.get(this.activeAccount);
     if (account) {
       var view = {
-        account: account.name
-      };
+        account: account.name,
+        mvTypes: [
+          {id: -1, name: "débit"},
+          {id: 1, name:"crédit"}
+        ]
+      }
 
       this.container.html(
         this.mustache.render(this.viewBuffer, view)
@@ -41,18 +45,25 @@
   };
 
   NewLineCtrl.prototype._initControls = function() {
-    this.container.find('#txtLabel').focus();
+    this.txtLabel    = this.container.find('#txtLabel');
+    this.txtAmount   = this.container.find('#txtAmount');
+    this.cmbMvType   = this.container.find('#cmbMvType');
+    this.btnSaveLine = this.container.find('#btnSaveLine');
+
+    this.txtLabel.focus();
   };
 
   NewLineCtrl.prototype._mapEvents = function() {
     var self = this;
 
-    this.container.find('#btnSaveLine').on('click', function(e) {
+    this.btnSaveLine.on('click', function(e) {
       e.preventDefault();
 
       var account   = self.account.get(self.activeAccount);
       var lnid      = 0;
-      var amountVal = parseFloat(self.container.find('#txtAmount').val());
+      var amountVal = parseFloat(
+        self.txtAmount.val()) * parseInt(self.cmbMvType.val()
+      );
 
       if (0 < account.lines.length) {
         lnid = _.last(account.lines).id + 1;
@@ -60,16 +71,16 @@
 
       var line = {
         id: lnid,
-        label: self.container.find('#txtLabel').val(),
+        label: self.txtLabel.val(),
         amount: amountVal.toFixed(2)
       };
 
       account.lines.push(line);
       self.account.save();
 
-      self.container.find('#txtLabel').val('');
-      self.container.find('#txtAmount').val('');
-      self.container.find('#txtLabel').focus();
+      self.txtLabel.val('');
+      self.txtAmount.val('');
+      self.txtLabel.focus();
     });
 
   };

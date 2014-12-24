@@ -15,16 +15,8 @@
 
   NewAccountCtrl.prototype.render = function() {
     var view = {
-      accountTypes: []
+      accountTypes: this.accountType.items
     };
-
-    for (var i = 0; i < this.accountType.items.length; i++) {
-      var item = this.accountType.items[i];
-      view.accountTypes.push({
-        id: item.cid,
-        name: item.name
-      });
-    }
 
     this.container.html(
       this.mustache.render(this.viewBuffer, view)
@@ -39,16 +31,22 @@
   };
 
   NewAccountCtrl.prototype._initControls = function() {
-    this.container.find('#txtAccountName').focus();
+    this.txtAccName       = this.container.find('#txtName');
+    this.cmbAccType       = this.container.find('#cmbType');
+    this.btnSaveAcc       = this.container.find('#btnSave');
+    this.txtInitialAmount = this.container.find('#txtInitialAmount');
+
+    this.txtAccName.focus();
   };
 
   NewAccountCtrl.prototype._mapEvents = function() {
     var self = this;
 
-    this.container.find('#btnSaveAccount').on('click', function() {
+    this.btnSaveAcc.on('click', function() {
       self.account.insert({
-        name: self.container.find('#txtAccountName').val(),
-        actId: self.container.find('#cmbAccountType').val(),
+        name: self.txtAccName.val(),
+        accountTypeId: self.cmbAccType.val(),
+        initialAmount: parseFloat(self.txtInitialAmount.val()).toFixed(2),
         lines: []
       });
     });

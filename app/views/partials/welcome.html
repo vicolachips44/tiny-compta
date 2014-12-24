@@ -8,7 +8,7 @@
           class="form-control"
           name="cmbAccount">
           {{ #accounts }}
-          <option value="{{ id }}">{{ name }}</option>
+          <option value="{{ cid }}">{{ name }}</option>
           {{ /accounts }}
         </select>
       </div>
@@ -28,7 +28,7 @@
       </thead>
       <tbody>
         {{ #lines }}
-        <tr data-id="{{ id }}" data-account-id="{{ accountId }}">
+        <tr data-id="{{ cid }}" data-account-id="{{ accountId }}">
           <td>{{ label }}</td>
           <td>{{ amount }}</td>
           <td>

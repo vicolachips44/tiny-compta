@@ -19,39 +19,25 @@
   };
 
   WelcomeCtrl.prototype.render = function() {
-    var accountAy = [];
     var lineAy    = [];
     var balance   = 0;
 
-    for (var i = 0; i < this.account.items.length; i++) {
-      var item = this.account.items[i];
-
-      accountAy.push({
-        id: item.cid,
-        name: item.name
-      });
-    }
-
     var selAccount = this.account.get(this.selectedAccount);
     if (selAccount) {
+      balance += parseFloat(selAccount.initialAmount);
       var lines = selAccount.lines;
       for (var j = 0; j < lines.length; j++) {
 
         var line      = lines[j];
         var amountVal = parseFloat(line.amount);
-
-        lineAy.push({
-          id: line.id,
-          label: line.label,
-          amount: amountVal
-        });
+        lineAy.push(line);
 
         balance += amountVal;
       }
     }
 
     var view = {
-      accounts: accountAy,
+      accounts: this.account.items,
       lines: lineAy,
       balance: balance.toFixed(2)
     };
@@ -65,18 +51,22 @@
   };
 
   WelcomeCtrl.prototype._initControls = function() {
-    this.container.find('#cmbAccount').val(this.selectedAccount);
+    this.cmbAccount = this.container.find('#cmbAccount');
+    this.delButtons = this.container.find('.btn-default');
+    this.balance    = this.container.find('#account_balance');
+
+    this.cmbAccount.val(this.selectedAccount);
   };
 
   WelcomeCtrl.prototype._mapEvents = function() {
     var self = this;
 
-    this.container.find('#cmbAccount').on('change', function() {
+    this.cmbAccount.on('change', function() {
       self.selectedAccount = parseInt(self.$(this).val());
       self.render();
     });
 
-    this.container.find('.btn-default').on('click', function(e) {
+    this.delButtons.on('click', function(e) {
       e.preventDefault();
 
       var parentTr   = self.$(this).closest('tr');
@@ -95,11 +85,10 @@
 
       self.account.save();
 
-      var blcSelector = self.container.find('#account_balance');
-      var amount      = parseFloat(parentTr.find('td:nth-child(2)').html());
-      var balance     = parseFloat(blcSelector.html()) - amount;
+      var amount  = parseFloat(parentTr.find('td:nth-child(2)').html());
+      var balance = parseFloat(self.balance.html()) - amount;
 
-      blcSelector.html(balance.toFixed(2));
+      self.balance.html(balance.toFixed(2));
 
       parentTr.remove();
     });

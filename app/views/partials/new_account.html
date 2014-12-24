@@ -1,13 +1,13 @@
 <form id="form_new_account" class="form-horizontal" role="form">
   <div class="row">
-    <label class="control-label col-sm-3" for="txtAccountName">Nom:</label>
+    <label class="control-label col-sm-3" for="txtName">Nom:</label>
     <div class="col-sm-8">
       <div class="form-group">
         <input
-          id="txtAccountName"
+          id="txtName"
           type="text"
           class="form-control"
-          name="txtAccountName">
+          name="txtName">
         </input>
       </div>
     </div>
@@ -15,26 +15,39 @@
   <div class="row">
     <label
       class="control-label col-sm-3"
-      for="cmbAccountType">
+      for="cmbType">
       Type de compte:
     </label>
     <div class="col-sm-8">
       <div class="form-group">
         <select
-          id="cmbAccountType"
+          id="cmbType"
           class="form-control"
-          name="cmbAccountType">
+          name="cmbType">
           {{ #accountTypes }}
-          <option value="{{ id }}">{{ name }}</option>
+          <option value="{{ cid }}">{{ name }}</option>
           {{ /accountTypes }}
         </select>
       </div>
     </div>
   </div>
   <div class="row">
+    <label class="control-label col-sm-3" for="txtInitialAmount">Solde initial:</label>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <input
+          id="txtInitialAmount"
+          type="text"
+          class="form-control"
+          name="txtInitialAmount">
+        </input>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-11">
       <div class="form-group pull-right">
-        <button id="btnSaveAccount" name="btnSaveAccount">
+        <button id="btnSave" name="btnSave">
           <span class="glyphicon glyphicon-floppy-save"></span>
           Enregistrer
         </button>

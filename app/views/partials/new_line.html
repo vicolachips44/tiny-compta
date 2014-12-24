@@ -16,6 +16,25 @@
     </div>
   </div>
   <div class="row">
+    <label
+      class="control-label col-sm-3"
+      for="cmbMvType">
+      Type de mouvement:
+    </label>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <select
+          id="cmbMvType"
+          class="form-control"
+          name="cmbMvType">
+          {{ #mvTypes }}
+          <option value="{{ id }}">{{ name }}</option>
+          {{ /mvTypes }}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <label class="control-label col-sm-3" for="txtAmount">Montant:</label>
     <div class="col-sm-8">
       <div class="form-group">
