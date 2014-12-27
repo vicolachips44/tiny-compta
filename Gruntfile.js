@@ -120,7 +120,10 @@ module.exports = function (grunt) {
           src: ['bootstrap/fonts/*'],
           dest: '<%= config.app %>/lib/fonts',
         },
-        ]
+        {
+          src: ['<%= config.vendor %>/bootbox/bootbox.js'],
+          dest: '<%= config.app %>/lib/js/bootbox.js'
+        }]
       },
       appLinux: {
         files: [{
