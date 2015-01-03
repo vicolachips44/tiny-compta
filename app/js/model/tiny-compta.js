@@ -1,8 +1,6 @@
 (function() {
   'use strict';
 
-  var fs = require('fs');
-
   /** constructeur **/
   var TinyCompta = function() {
 

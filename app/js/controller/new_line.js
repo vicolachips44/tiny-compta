@@ -26,10 +26,10 @@
       var view = {
         account: account.name,
         mvTypes: [
-          {id: -1, name: "débit"},
-          {id: 1, name:"crédit"}
+          {id: -1, name: 'débit'},
+          {id: 1, name:'crédit'}
         ]
-      }
+      };
 
       this.container.html(
         this.mustache.render(this.viewBuffer, view)

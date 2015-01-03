@@ -24,7 +24,7 @@
       if (isnew) {
         this.accountType.insert([
           {name: 'Compte chèque'},
-          {name: "Compte d'épargne"},
+          {name: 'Compte d\'épargne'},
           {name: 'Compte titre'}
         ]);
       }

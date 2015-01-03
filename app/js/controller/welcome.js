@@ -77,7 +77,7 @@
       for (var i = 0; i < lines.length; i++) {
         var line = lines[i];
 
-        if (line.id == tokens[1]) {
+        if (line.id === tokens[1]) {
           lines.splice(i, 1);
           break;
         }
