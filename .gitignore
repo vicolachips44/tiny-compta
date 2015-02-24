@@ -1,7 +1,7 @@
 vendor/
 node_modules/
 app/lib/
-
+.DS_Store
 # these should be symlinks to the node-webkit platforms binaries folder
 resources/node-webkit/Linux32
 resources/node-webkit/Linux64
